@@ -1,0 +1,116 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/jz/DLSys/hw4/build/CMakeFiles/CMakeScratch/TryCompile-Dy4CoE
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_52e58/fast && make[1]: Entering directory '/home/jz/DLSys/hw4/build/CMakeFiles/CMakeScratch/TryCompile-Dy4CoE'
+/usr/bin/make  -f CMakeFiles/cmTC_52e58.dir/build.make CMakeFiles/cmTC_52e58.dir/build
+make[2]: Entering directory '/home/jz/DLSys/hw4/build/CMakeFiles/CMakeScratch/TryCompile-Dy4CoE'
+Building C object CMakeFiles/cmTC_52e58.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fPIC  -o CMakeFiles/cmTC_52e58.dir/src.c.o -c /home/jz/DLSys/hw4/build/CMakeFiles/CMakeScratch/TryCompile-Dy4CoE/src.c
+Linking C executable cmTC_52e58
+/home/jz/miniconda3/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_52e58.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC  -rdynamic CMakeFiles/cmTC_52e58.dir/src.c.o -o cmTC_52e58 
+/usr/bin/ld: CMakeFiles/cmTC_52e58.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x5e): undefined reference to `pthread_cancel'
+/usr/bin/ld: src.c:(.text+0x6f): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[2]: *** [CMakeFiles/cmTC_52e58.dir/build.make:99: cmTC_52e58] Error 1
+make[2]: Leaving directory '/home/jz/DLSys/hw4/build/CMakeFiles/CMakeScratch/TryCompile-Dy4CoE'
+make[1]: *** [Makefile:127: cmTC_52e58/fast] Error 2
+make[1]: Leaving directory '/home/jz/DLSys/hw4/build/CMakeFiles/CMakeScratch/TryCompile-Dy4CoE'
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/jz/DLSys/hw4/build/CMakeFiles/CMakeScratch/TryCompile-XHK2JC
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_42a9b/fast && make[1]: Entering directory '/home/jz/DLSys/hw4/build/CMakeFiles/CMakeScratch/TryCompile-XHK2JC'
+/usr/bin/make  -f CMakeFiles/cmTC_42a9b.dir/build.make CMakeFiles/cmTC_42a9b.dir/build
+make[2]: Entering directory '/home/jz/DLSys/hw4/build/CMakeFiles/CMakeScratch/TryCompile-XHK2JC'
+Building C object CMakeFiles/cmTC_42a9b.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_42a9b.dir/CheckFunctionExists.c.o -c /home/jz/DLSys/hw4/build/CMakeFiles/CMakeScratch/TryCompile-XHK2JC/CheckFunctionExists.c
+Linking C executable cmTC_42a9b
+/home/jz/miniconda3/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_42a9b.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create -rdynamic CMakeFiles/cmTC_42a9b.dir/CheckFunctionExists.c.o -o cmTC_42a9b  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[2]: *** [CMakeFiles/cmTC_42a9b.dir/build.make:99: cmTC_42a9b] Error 1
+make[2]: Leaving directory '/home/jz/DLSys/hw4/build/CMakeFiles/CMakeScratch/TryCompile-XHK2JC'
+make[1]: *** [Makefile:127: cmTC_42a9b/fast] Error 2
+make[1]: Leaving directory '/home/jz/DLSys/hw4/build/CMakeFiles/CMakeScratch/TryCompile-XHK2JC'
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/jz/DLSys/hw4/build/CMakeFiles/CMakeScratch/TryCompile-W4QIRk
+
+Run Build Command(s):/home/jz/miniconda3/bin/ninja cmTC_aedc6 && [1/2] Building C object CMakeFiles/cmTC_aedc6.dir/src.c.o
+[2/2] Linking C executable cmTC_aedc6
+FAILED: cmTC_aedc6 
+: && /usr/bin/gcc -fPIC -rdynamic CMakeFiles/cmTC_aedc6.dir/src.c.o -o cmTC_aedc6   && :
+/usr/bin/ld: CMakeFiles/cmTC_aedc6.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x5e): undefined reference to `pthread_cancel'
+/usr/bin/ld: src.c:(.text+0x6f): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/jz/DLSys/hw4/build/CMakeFiles/CMakeScratch/TryCompile-Aykf2g
+
+Run Build Command(s):/home/jz/miniconda3/bin/ninja cmTC_b93c3 && [1/2] Building C object CMakeFiles/cmTC_b93c3.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_b93c3
+FAILED: cmTC_b93c3 
+: && /usr/bin/gcc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create -rdynamic CMakeFiles/cmTC_b93c3.dir/CheckFunctionExists.c.o -o cmTC_b93c3  -lpthreads && :
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+
+
