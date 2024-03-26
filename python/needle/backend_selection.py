@@ -22,5 +22,14 @@ elif BACKEND == "np":
     from .backend_numpy import all_devices, cpu, default_device, Device
 
     NDArray = array_api.ndarray
+elif BACKEND == "tricuda":
+    """"""
+    import backend_ndarray.ndarray_backend_tricuda as array_api
+    from backend_ndarray.ndarray_tricuda import (
+        tricuda,
+        all_devices, 
+        default_device, 
+        BackendDevice as Device,
+    )
 else:
     raise RuntimeError("Unknown needle array backend %s" % BACKEND)
